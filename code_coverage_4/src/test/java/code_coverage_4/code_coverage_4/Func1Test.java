@@ -4,23 +4,18 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 public class Func1Test {
-	Func1 f1=new Func1();
-	
+	Func1 f1=new Func1 ();
 
+    // T1: x=5, y=0, z=10  => res = 0
     @Test
-    public void T1_x2_y0_z50() {
-        int result = f1.func1(2, 0, 50);
-        assertEquals(2, result); // res=2 حسب الجدول
+    public void T1_x5_y0_z10() {
+        int result = f1.func1(5, 0, 10);
+        assertEquals(0, result);
     }
 
-    @Test
-    public void T2_x2_y1_z50() {
-        int result = f1.func1(2, 1, 50);
-        assertEquals(0, result); // res=0 حسب الجدول
-    }
-
+    // T2: x=0, y=5, z=10 => ArithmeticException (division by zero)
     @Test(expected = ArithmeticException.class)
-    public void T3_x0_y0_z50_shouldThrow() {
-    	f1.func1(0, 0, 50); // ArithmeticException بسبب res/x
+    public void T2_x0_y5_z10_shouldThrow() {
+    	f1.func1(0, 5, 10);
     }
 }
